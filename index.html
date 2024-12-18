@@ -6,70 +6,89 @@
     <title>Quản lý sinh viên</title>
     <link rel="stylesheet" href="danh_sach.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 <h1>Quản lý học viên</h1>
-<form>
-    <table>
+<div class="table-container">
+    <form>
+        <table>
+            <tr>
+                <th colspan="2">
+                    Thông tin sinh viên
+                </th>
+            </tr>
+            <tr>
+                <th><label for="id"></label>ID</th>
+                <td><input type="text" id="id"></td>
+            </tr>
+            <tr>
+                <th><label for="name"></label>Họ và tên</th>
+                <td><input type="text" id="name"></td>
+            </tr>
+            <tr>
+                <th><label for="date"></label>Ngày sinh</th>
+                <td><input type="date" id="date"></td>
+            </tr>
+            <tr>
+                <th><label>Giới tính</label></th>
+                <td>
+                    <label>
+                        <input type="radio" name="gender" id="genderNam" value="Nam" checked> Nam
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" id="genderNu" value="Nữ"> Nữ
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="class">Lớp</label></th>
+                <td>
+                    <select id="class">
+                        <option value="">-- Chọn lớp --</option>
+                        <option value="SE06201">SE06201</option>
+                        <option value="SE06202">SE06202</option>
+                        <option value="SE06203">SE06203</option>
+                        <option value="IT06201">IT06201</option>
+                        <option value="IT06202">IT06202</option>
+                        <option value="IT06203">IT06203</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="image"></label>Ảnh</th>
+                <td><input type="file" id="image"></td>
+            </tr>
+            <tr>
+                <th></th>
+                <td>
+                    <button type="button" id="addButton" onclick="quanLySinhVien.themSinhVien()"><i
+                            class="fa-solid fa-plus"></i> Thêm
+                    </button>
+                    <button type="button" id="updateButton" onclick="quanLySinhVien.capNhatSinhVien()"
+                            style="display: none"><i
+                            class="fa-solid fa-up-long"></i> Cập nhật
+                    </button>
+                    <button type="reset" id="delete"><i class="fa-solid fa-trash"></i> Xoá</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <table id="sinhVienTable">
+        <thead>
         <tr>
-            <th colspan="2">
-                Thông tin sinh viên
-            </th>
+            <th>ID</th>
+            <th>Họ và Tên</th>
+            <th>Ngày sinh</th>
+            <th>Giới tính</th>
+            <th>Lớp</th>
+            <th>Ảnh</th>
+            <th>Hành động</th>
         </tr>
-        <tr>
-            <th><label for="id"></label>ID</th>
-            <td><input type="text" id="id"></td>
-        </tr>
-        <tr>
-            <th><label for="name"></label>Họ và tên</th>
-            <td><input type="text" id="name"></td>
-        </tr>
-        <tr>
-            <th><label for="date"></label>Ngày sinh</th>
-            <td><input type="date" id="date"></td>
-        </tr>
-        <tr>
-            <th><label for="gender"></label>Giới tính</th>
-            <td><select id="gender">
-                <option value="Nam">Nam</option>
-                <option value="Nữ">Nữ</option>
-            </select></td>
-        </tr>
-        <tr>
-            <th><label for="class"></label>Lớp</th>
-            <td><input type="text" id="class"></td>
-        </tr>
-        <tr>
-            <th><label for="image"></label>Ảnh</th>
-            <td><input type="file" id="image"></td>
-        </tr>
-        <tr>
-            <th></th>
-            <td>
-                <button type="button" id="addButton" onclick="themSinhVien()"><i class="fa-solid fa-plus"></i> Thêm
-                </button>
-                <button type="button" id="updateButton" onclick="capNhatSinhVien()" style="display: none"><i
-                        class="fa-solid fa-up-long"></i> Cập nhật
-                </button>
-                <button type="reset"><i class="fa-solid fa-trash"></i> Xoá</button>
-            </td>
-        </tr>
+        </thead>
+        <tbody></tbody>
     </table>
-</form>
-<table id="sinhVienTable">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Họ và Tên</th>
-        <th>Ngày sinh</th>
-        <th>Giới tính</th>
-        <th>Lớp</th>
-        <th>Ảnh</th>
-        <th>Hành động</th>
-    </tr>
-    </thead>
-    <tbody></tbody>
-</table>
-<script src="danh_sach.js"></script>
+    <script src="danh_sach.js"></script>
+</div>
 </body>
 </html>
