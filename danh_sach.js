@@ -51,6 +51,16 @@ class QuanLySinhVien {
         let newClass = document.getElementById("class").value.trim();
         let newImageInput = document.getElementById("image");
 
+        let isDuplicate = this.sinhViens.some((sinhVien) => sinhVien.id === newId);
+        if (isDuplicate) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Lỗi!',
+                text: 'ID đã tồn tại. Vui lòng nhập ID khác!'
+            });
+            return;
+        }
+
         if (newId && newName && newDate && newGender && newClass && newImageInput.files.length > 0) {
             let reader = new FileReader();
             reader.onload = (e) => {
